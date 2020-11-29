@@ -35,7 +35,7 @@ body {
     background-position: top; /* set image to top of the container no matter how the viewport shifts */
     position: relative;
 
-    clip-path: polygon(0 0, 100% 0, 100% 90vh, 9 0% 100%, 0 90vh); 
+    clip-path: polygon(0 0, 100% 0, 100% 90vh, 50% 100%, 0 90vh); 
 }
 
 .logo-box {
@@ -66,13 +66,53 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
-    text-align: center;
+    /* text-align: center; */
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
 
 .heading-primary-sub {
     display: block;
     font-size: 20px;
     font-weight: 700;
-    letter-spacing: 17.2px;
-    text-align: center;
+    letter-spacing: 17.25px;
+    /* text-align: center; */
+
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+}
+/* Add animations */
+@keyframes moveInLeft {
+    0% { /* the start */
+        opacity: 0;
+        transform: translateX(-100px); /* goes 100 px to the left of the x-axis */
+    }
+    
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% { /* the end */
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% { /* the start */
+        opacity: 0;
+        transform: translateX(100px); /* goes 100 px to the right of the x-axis */
+    }
+    
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% { /* the end */
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
