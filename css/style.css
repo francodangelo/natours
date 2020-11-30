@@ -35,7 +35,7 @@ body {
     background-position: top; /* set image to top of the container no matter how the viewport shifts */
     position: relative;
 
-    clip-path: polygon(0 0, 100% 0, 100% 90vh, 50% 100%, 0 90vh); 
+    clip-path: polygon(0 0, 100% 0, 100% 87vh, 50% 100%, 0 87vh); 
 }
 
 .logo-box {
@@ -53,12 +53,19 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%); /* now the %s are no longer in relation to a parent element, but to the element itself */
+    
+    text-align: center;
 }
 
 /* Style the headings */
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+
+    backface-visibility: hidden; /* determines if the part behind the element remains hidden or visible */
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .heading-primary-main {
@@ -66,7 +73,6 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
-    /* text-align: center; */
 
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -77,12 +83,10 @@ body {
     display: block;
     font-size: 20px;
     font-weight: 700;
-    letter-spacing: 17.25px;
-    /* text-align: center; */
+    letter-spacing: 17.2px;
 
-    animation-name: moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
+    /* shorten property */
+    animation: moveInRight 1s ease-out;
 }
 /* Add animations */
 @keyframes moveInLeft {
@@ -115,4 +119,26 @@ body {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+.btn:link,
+.btn:visited { /* selecting the btn class special estates link and visited */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block; /* displays the element as a normal block, instead of inline */
+     
+}
+
+.btn:hover {
+    transform: translateY(-3px); /* go 3px up on y-axis */
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
 }
