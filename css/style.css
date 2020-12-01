@@ -127,6 +127,19 @@ body {
     }
 }
 
+@keyframes moveInBottom {
+    0% { /* the start */
+        opacity: 0;
+        transform: translateY(30px); /* goes 30 px down the y-axis */
+    }   
+
+    100% { /* the end */
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Work on Landing Button */
 .btn:link,
 .btn:visited { /* selecting the btn class special estates link and visited */
     text-transform: uppercase;
@@ -134,7 +147,8 @@ body {
     padding: 15px 40px;
     display: inline-block; /* displays the element as a normal block, instead of inline */
     border-radius: 100px;
-    transition: all .5s; /* all properties are enabled to be animated */
+    transition: all .3s; /* all properties are enabled to be animated */
+    position: relative;
 } /* con la transicion aca habilitamos para que se pueda animar, despues decimos 
 como es la animacion en los distintos estados */
 
@@ -151,4 +165,33 @@ como es la animacion en los distintos estados */
 .btn-white {
     background-color: #fff;
     color: #777;
+}
+
+.btn::after { /* pseudo element */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; /* make the animation to set the button to invisible */
+}
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out .75s; /* has a .75s delay */
+    animation-fill-mode: backwards; /* automatically applies the styles of the 0% before the animation starts */
 }
