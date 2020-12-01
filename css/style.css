@@ -133,15 +133,19 @@ body {
     text-decoration: none;
     padding: 15px 40px;
     display: inline-block; /* displays the element as a normal block, instead of inline */
-     
-}
+    border-radius: 100px;
+    transition: all .5s; /* all properties are enabled to be animated */
+} /* con la transicion aca habilitamos para que se pueda animar, despues decimos 
+como es la animacion en los distintos estados */
 
 .btn:hover {
     transform: translateY(-3px); /* go 3px up on y-axis */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
 }
 
 .btn:active {
     transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
 
 .btn-white {
